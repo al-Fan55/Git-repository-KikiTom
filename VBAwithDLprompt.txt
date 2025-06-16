@@ -1,0 +1,11 @@
+Sub stockprice_prompt()
+    ' 確認付きで柔軟に処理
+    Dim answer As VbMsgBoxResult
+    answer = MsgBox("yFinanceから最新データを取得しますか？", vbYesNo + vbQuestion, "データ取得の確認")
+
+    If answer = vbYes Then
+        RunPython "import stockprice; stockprice.main(use_online:=True)"
+    Else
+        RunPython "import stockprice; stockprice.main(use_online:=False)"
+    End If
+End Sub
